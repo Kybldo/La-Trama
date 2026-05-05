@@ -31,7 +31,7 @@ body {
   padding: 1.25rem;
 }
 
-.login-card, .account-card, .event-card, .history-card {
+.login-card, .account-card, .event-card, .history-card, .filter-card {
   border: 1px solid rgba(124, 58, 237, 0.12);
   background: var(--card);
   backdrop-filter: blur(14px);
@@ -42,6 +42,8 @@ body {
   width: min(100%, 430px);
   padding: 2rem;
 }
+
+.filter-card { padding: 1rem; }
 
 .brand-mark, .avatar {
   display: grid;
@@ -108,16 +110,24 @@ body {
 
 .event-card, .history-card, .account-card { padding: 1rem; }
 
-.event-date-pill {
+.event-date-pill, .event-type-pill {
   display: inline-flex;
   align-items: center;
   gap: .35rem;
   border-radius: 999px;
   padding: .35rem .65rem;
-  color: var(--purple-dark);
-  background: #ede9fe;
   font-weight: 700;
   font-size: .86rem;
+}
+
+.event-date-pill {
+  color: var(--purple-dark);
+  background: #ede9fe;
+}
+
+.event-type-pill {
+  color: #9a3412;
+  background: var(--orange-soft);
 }
 
 .description {
@@ -127,7 +137,7 @@ body {
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: .5rem;
 }
 
@@ -140,14 +150,63 @@ body {
 
 .stat-box strong { display: block; font-size: 1.15rem; }
 
-.vote-grid {
+.attendance-panel {
+  border-radius: 1.1rem;
+  padding: .85rem;
+  margin-top: .85rem;
+  background: rgba(250, 245, 255, .85);
+  border: 1px solid rgba(124, 58, 237, 0.1);
+}
+
+.attendance-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+}
+
+.attendance-switch.form-switch { padding-left: 0; }
+.attendance-switch .form-check-input {
+  float: none;
+  margin-left: 0;
+  width: 3.25rem;
+  height: 1.65rem;
+  cursor: pointer;
+}
+
+.guest-tools {
+  margin-top: .75rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr auto;
   gap: .5rem;
 }
 
-.vote-grid .btn { border-radius: 1rem; font-weight: 800; }
-.vote-grid .selected { transform: translateY(-1px); box-shadow: 0 .6rem 1.3rem rgba(36,19,51,.12); }
+.guest-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin-top: .6rem;
+}
+
+.guest-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  border-radius: 999px;
+  padding: .35rem .55rem;
+  background: #fff;
+  border: 1px solid rgba(124, 58, 237, .12);
+  font-weight: 700;
+  font-size: .84rem;
+}
+
+.guest-chip button {
+  border: 0;
+  background: transparent;
+  color: #dc3545;
+  padding: 0;
+  line-height: 1;
+}
 
 .event-secondary-actions {
   display: grid;
@@ -217,6 +276,16 @@ body {
   flex: 0 0 auto;
 }
 
+.invited-by-badge {
+  margin-left: auto;
+  border-radius: 999px;
+  padding: .2rem .5rem;
+  background: #ede9fe;
+  color: var(--purple-dark);
+  font-size: .72rem;
+  font-weight: 800;
+}
+
 .attendee-empty {
   padding: .75rem .9rem 1rem;
   color: var(--muted);
@@ -238,7 +307,7 @@ body {
 
 .tall-textarea { min-height: 8rem !important; }
 
-.form-control:focus, .form-check-input:focus {
+.form-control:focus, .form-select:focus, .form-check-input:focus {
   border-color: var(--purple);
   box-shadow: 0 0 0 .25rem rgba(124, 58, 237, .16);
 }
@@ -250,5 +319,6 @@ body {
   .container { padding-left: .85rem; padding-right: .85rem; }
   .login-card { padding: 1.25rem; border-radius: 1.25rem; }
   .app-tabs .nav-link span { display: none; }
-  .event-card, .history-card, .account-card { border-radius: 1.25rem; }
+  .event-card, .history-card, .account-card, .filter-card { border-radius: 1.25rem; }
+  .guest-tools { grid-template-columns: 1fr; }
 }
