@@ -76,12 +76,34 @@
             <div class="d-flex gap-2 align-items-center justify-content-between mb-3">
               <div>
                 <h2 class="h4 fw-bold mb-0">Próximos eventos</h2>
-                <p class="text-secondary mb-0">Entra y confirma tu asistencia</p>
+                <p class="text-secondary mb-0">Filtra, ordena y confirma tu asistencia</p>
               </div>
               <button id="newEventButton" class="btn btn-gradient btn-sm d-none" data-bs-toggle="modal" data-bs-target="#eventModal">
                 <i class="bi bi-plus-lg"></i> Evento
               </button>
             </div>
+
+            <div class="filter-card shadow-sm mb-3">
+              <div class="row g-2">
+                <div class="col-12 col-sm-6">
+                  <label for="typeFilter" class="form-label small fw-bold mb-1">Tipo</label>
+                  <select id="typeFilter" class="form-select">
+                    <option value="all">Todos</option>
+                    <option value="Comida">Comida</option>
+                    <option value="Cena">Cena</option>
+                    <option value="Evento">Evento</option>
+                  </select>
+                </div>
+                <div class="col-12 col-sm-6">
+                  <label for="sortFilter" class="form-label small fw-bold mb-1">Orden</label>
+                  <select id="sortFilter" class="form-select">
+                    <option value="oldest">Más antiguos primero</option>
+                    <option value="newest">Más recientes primero</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
             <div id="eventsList" class="row g-3"></div>
             <div id="eventsEmpty" class="empty-state d-none">
               <i class="bi bi-emoji-frown"></i>
@@ -161,8 +183,26 @@
               <label for="eventDescription">Descripción</label>
             </div>
             <div class="form-floating mb-3">
-              <input id="eventDate" class="form-control" type="date" required />
-              <label for="eventDate">Fecha</label>
+              <select id="eventType" class="form-select" required>
+                <option value="Comida">Comida</option>
+                <option value="Cena">Cena</option>
+                <option value="Evento">Evento</option>
+              </select>
+              <label for="eventType">Tipo</label>
+            </div>
+            <div class="row g-2">
+              <div class="col-7">
+                <div class="form-floating mb-3">
+                  <input id="eventDate" class="form-control" type="date" required />
+                  <label for="eventDate">Fecha</label>
+                </div>
+              </div>
+              <div class="col-5">
+                <div class="form-floating mb-3">
+                  <input id="eventTime" class="form-control" type="time" required />
+                  <label for="eventTime">Hora</label>
+                </div>
+              </div>
             </div>
           </div>
           <div class="modal-footer">
